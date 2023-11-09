@@ -1,7 +1,7 @@
 # Commands to launch the docker compose in the right order.
 docker exec -it vite_docker sh
 npm i && npm run dev
-
+test
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
