@@ -1,4 +1,7 @@
 # Commands to launch the docker compose in the right order.
+systemctl start docker
+docker ps -a
+docker start ID du docker
 docker exec -it vite_docker sh
 npm i && npm run dev
 test
