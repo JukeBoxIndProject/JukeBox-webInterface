@@ -23,4 +23,11 @@ exit # Exit the docker container terminal
 sudo docker stop vite_docker # Stop the docker container
 
 sudo docker rm vite_docker # Unmount the docker container
+
+sudo docker-compose down --remove-orphans
 ```
+
+# How to access to mysql with terminal 
+mysql -u root -p
+
+Enter password = root
