@@ -1,5 +1,6 @@
 version: "3.4"
 
+#Front-end container
 services:
  vite_docker:
    image: node:alpine
@@ -13,3 +14,5 @@ services:
        source: ./
        target: /srv/app
    tty: true
+
+   #Back-end container
