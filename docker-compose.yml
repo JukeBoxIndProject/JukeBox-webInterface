@@ -1,6 +1,5 @@
 version: "3.4"
 
-#Front-end container
 services:
  vite_docker:
    image: node:alpine
@@ -15,7 +14,6 @@ services:
        target: /srv/app
    tty: true
 
-   #Back-end container
  database:
     image: mysql:latest
     container_name: db
@@ -27,4 +25,16 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./db/db.sql:/docker-entrypoint-initdb.d
+      - ./db:/docker-entrypoint-initdb.d
+#Adding the platform PHPMyAdmin
+ phpmyadmin:
+   image: phpmyadmin/phpmyadmin
+   container_name: phpmyadmin
+   environment:
+     PMA_HOST: database
+     PMA_USER: user
+     PMA_PASSWORD: root
+   ports:
+     - "8080:80"
+   depends_on:
+     - database
