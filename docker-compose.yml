@@ -16,3 +16,15 @@ services:
    tty: true
 
    #Back-end container
+ database:
+    image: mysql:latest
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: jukebox
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/db.sql:/docker-entrypoint-initdb.d
