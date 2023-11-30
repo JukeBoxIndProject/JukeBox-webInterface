@@ -16,7 +16,7 @@ services:
 
  database:
     image: mysql:latest
-    container_name: db
+    container_name: database
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: jukebox
@@ -28,13 +28,13 @@ services:
       - ./db:/docker-entrypoint-initdb.d
 #Adding the platform PHPMyAdmin
  phpmyadmin:
-   image: phpmyadmin/phpmyadmin
-   container_name: phpmyadmin
-   environment:
-     PMA_HOST: database
-     PMA_USER: user
-     PMA_PASSWORD: root
-   ports:
-     - "8080:80"
-   depends_on:
-     - database
+  image: phpmyadmin/phpmyadmin
+  container_name: phpmyadmin
+  environment:
+    PMA_HOST: database
+    PMA_USER: user
+    PMA_PASSWORD: root
+  ports:
+    - "8080:80"
+  depends_on:
+    - database
