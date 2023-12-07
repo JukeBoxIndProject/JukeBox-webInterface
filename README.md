@@ -31,3 +31,5 @@ mysql -u root -p
 
 Enter password = root
 ```
+# Database
+## Do not user the tables: failed_jobs, migrations, password_reset_tokens, personal_access_tokens and users !!
