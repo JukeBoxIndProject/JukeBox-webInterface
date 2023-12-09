@@ -44,3 +44,10 @@ docker-compose exec laravel php artisan migrate
 ```bash
 php artisan serve #It will launch the Laravel server
 ```
+
+# Differents controllers/events and eventslisteners for the Laravel project
+
+## For users
+UserController: manage all users in the project
+UserUpdated: Event who update users
+UserUpdatedListener: event listener who update the file that contain the list of all users
