@@ -35,7 +35,7 @@ Enter password = root
 ## Do not user the tables: failed_jobs, migrations, password_reset_tokens, personal_access_tokens and users !! 
 ### These tables are to make some backup of the modifications on the project database.
 
-#### To have all tables in phpmyadmin, you have to do the following command:
+#### To have all tables in phpmyadmin and to make an update, you have to do the following command:
 ```bash
 docker-compose exec laravel php artisan migrate
 ```
