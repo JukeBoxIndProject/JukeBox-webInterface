@@ -45,8 +45,17 @@ docker-compose exec laravel php artisan migrate
 php artisan serve #It will launch the Laravel server
 ```
 
-# Differents controllers/events and eventslisteners for the Laravel project
+# Command to create a Controller, an Event and an EventListener
+```bash
+php artisan make:controller NameOfTheController
 
+php artisan make:event NameOfTheEvent
+
+php artisan make:listener NameOfTheListener --event=NameOfTheEvent
+
+```
+
+# Differents controllers/events and eventslisteners for the Laravel project
 ## For users
 UserController: manage all users in the project
 UserUpdated: Event who update users
