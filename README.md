@@ -39,3 +39,8 @@ Enter password = root
 ```bash
 docker-compose exec laravel php artisan migrate
 ```
+
+# For access to the Laravel server, you have to do the following command in the Laravel project
+```bash
+php artisan serve #It will launch the Laravel server
+```
