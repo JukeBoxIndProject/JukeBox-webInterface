@@ -13,6 +13,11 @@ npm i && npm run dev # Start nodeJs app
 
 ```
 
+# How to kill a used port on the computer if it is the same that one of container
+```bash
+lsof -i :80 | awk 'NR>1 {print $2}' | xargs kill
+```
+
 # Stop app
 
 ```bash

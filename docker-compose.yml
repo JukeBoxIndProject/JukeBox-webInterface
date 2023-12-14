@@ -59,7 +59,7 @@ services:
  laravel:
   build:
     context: .
-    dockerfile: /home/junior/JukeBox-webInterface/Dockerfile
+    dockerfile: ./Dockerfile
   container_name: laravel
   ports:
     - "8001:80"
