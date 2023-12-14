@@ -2,31 +2,35 @@
     let username = "tibo"
 
     let music = "highwayToHell";
-    let Lyrics;
-
-    import(`../components/lyrics/${music}.svelte`).then(module => {
-        Lyrics = module.default || module;
-    });
+    let type = "rock";
 </script>
 
-<header>
-    <div>
-        <span>Jukebox</span>
-    </div>
-    <div>
-    { username }
-    </div>
-</header>
-<main>
-    {#if Lyrics}
-        <svelte:component this={Lyrics} />
-    {/if}
-</main>
+<body>
+    <header>
+        <div>
+            <span>Jukebox</span>
+        </div>
+        <div>
+            {#if username}
+                { username }
+            {:else}
+                connection
+            {/if}
+        </div>
+    </header>
+    <main>
+        <div class="gradient">
 
+        </div>
+    </main>
+</body>
 <style>
     @font-face {
         font-family: 'FugazOne';
         src: url(../components/fonts/FugazOne-Regular.ttf);
+    }
+    body{
+        height:100%;
     }
 
     header {
@@ -48,7 +52,6 @@
     }
     header > div:first-child > span {
         font-family: FugazOne;
-        background-color: red;
     }
     header > div:last-child{
         display: flex;
@@ -57,7 +60,34 @@
     }
 
     main {
-        background-color: blue;
-        margin: 1vh;
+        position: relative;
+        border-radius: 4px;
+        height: calc(95vh - 1vh);
+        margin-inline: 1vh;
+        overflow: hidden;
+    }
+
+    @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }
+
+    .gradient {
+        --size: 150%;
+        --speed: 25s;
+        --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+
+        width: var(--size);
+        height: var(--size);
+        filter: blur(calc(var(--size) / 5));
+        background-image: linear-gradient(hsl(158, 82, 57, 85%), hsl(252, 82, 57));
+        background-color: rgb(128, 2, 2);
+        filter: blur(100px);
+        animation: rotate var(--speed) var(--easing) alternate infinite;
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     }
 </style>
