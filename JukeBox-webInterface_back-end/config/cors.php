@@ -14,21 +14,13 @@ return [
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |
     */
-
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
-
+    'paths' => ['*'],
     'allowed_methods' => ['*'],
-
-    'allowed_origins' => [getenv('VITE_APP_URL')],
-
+    'allowed_origins' => ['http://172.21.0.2:8001'], // Ajoutez l'adresse de votre serveur front-end
     'allowed_origins_patterns' => [],
-
     'allowed_headers' => ['*'],
-
     'exposed_headers' => [],
-
     'max_age' => 0,
-
     'supports_credentials' => false,
 
 ];

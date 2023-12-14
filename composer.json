@@ -1,6 +1,7 @@
 {
     "require": {
         "laravel/framework": "^8.0",
-        "barryvdh/laravel-cors": "^3.0"
+        "barryvdh/laravel-cors": "^3.0",
+        "fruitcake/laravel-cors": "^3.0"
     }
 }

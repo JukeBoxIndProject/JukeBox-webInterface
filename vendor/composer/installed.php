@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '652ec1b9fe89db9337a161158eda87f310e68ece',
+        'reference' => '8aac9c1eeb9fd1e7897f94ca9a13506f08f6ee36',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '652ec1b9fe89db9337a161158eda87f310e68ece',
+            'reference' => '8aac9c1eeb9fd1e7897f94ca9a13506f08f6ee36',
             'dev_requirement' => false,
         ),
         'barryvdh/laravel-cors' => array(
@@ -89,6 +89,15 @@
             'install_path' => __DIR__ . '/../egulias/email-validator',
             'aliases' => array(),
             'reference' => '0dbf5d78455d4d6a41d186da50adc1122ec066f4',
+            'dev_requirement' => false,
+        ),
+        'fruitcake/laravel-cors' => array(
+            'pretty_version' => 'v3.0.0',
+            'version' => '3.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../fruitcake/laravel-cors',
+            'aliases' => array(),
+            'reference' => '7c036ec08972d8d5d9db637e772af6887828faf5',
             'dev_requirement' => false,
         ),
         'fruitcake/php-cors' => array(
