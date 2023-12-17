@@ -37,14 +37,18 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Fruitcake\Cors\HandleCors::class,
+            // Remove the following line
+            // \App\Http\Middleware\CorsMiddleware::class,
+            \Fruitcake\Cors\HandleCors::class, // Keep the Fruitcake CORS middleware
         ],
-
+        
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Fruitcake\Cors\HandleCors::class,
+            // Remove the following line
+            // \App\Http\Middleware\CorsMiddleware::class,
+            \Fruitcake\Cors\HandleCors::class, // Keep the Fruitcake CORS middleware
         ],
     ];
 
