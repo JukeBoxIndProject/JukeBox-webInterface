@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '8aac9c1eeb9fd1e7897f94ca9a13506f08f6ee36',
+        'reference' => '8c8cb3fe4fbcc776ce41f13c49c13312ad4d9bcd',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '8aac9c1eeb9fd1e7897f94ca9a13506f08f6ee36',
+            'reference' => '8c8cb3fe4fbcc776ce41f13c49c13312ad4d9bcd',
             'dev_requirement' => false,
         ),
         'barryvdh/laravel-cors' => array(

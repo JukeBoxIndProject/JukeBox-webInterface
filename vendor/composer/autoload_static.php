@@ -325,8 +325,8 @@ class ComposerStaticInit33f3328adf80b78a2a35e4a3a89b37af
         'Fruitcake\\Cors\\' => 
         array (
             0 => __DIR__ . '/..' . '/barryvdh/laravel-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-            2 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            2 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
