@@ -8,27 +8,39 @@ class CorsMiddleware
 {
     public function handle($request, Closure $next)
     {
-        if ($request->isMethod('OPTIONS')) {
-            // For preflight requests
-            return response()
-                ->make('')
-                ->header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
-                ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-                ->header('Content-Type', 'text/plain');
-        }
-
-        // For actual requests
         $response = $next($request);
 
-        // Check if the response is a string
-        if (is_string($response)) {
-            // If it's a string, create a response with the string content
-            $response = response($response);
-        }
+        $this->addCorsHeaders($response);
 
-        return $response
-            ->header('Access-Control-Allow-Origin', '*')
-            ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-            ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        return $response;
+    }
+
+    protected function handlePreflight($request)
+    {
+        // Add CORS headers for preflight request
+        $response = response('', 200);
+
+        $this->addCorsHeaders($response);
+
+        return $response;
+    }
+
+    protected function addCorsHeaders($response)
+    {
+        $allowedOrigins = config('cors.allowed_origins', []);
+        $allowedMethods = config('cors.allowed_methods', []);
+        $allowedHeaders = config('cors.allowed_headers', []);
+        $exposedHeaders = config('cors.exposed_headers', []);
+        $maxAge = config('cors.max_age', 0);
+        $supportsCredentials = config('cors.supports_credentials', false);
+
+        $response->header('Access-Control-Allow-Origin', implode(', ', $allowedOrigins));
+        $response->header('Access-Control-Allow-Methods', implode(', ', $allowedMethods));
+        $response->header('Access-Control-Allow-Headers', implode(', ', $allowedHeaders));
+        $response->header('Access-Control-Expose-Headers', implode(', ', $exposedHeaders));
+        $response->header('Access-Control-Max-Age', $maxAge);
+        $response->header('Access-Control-Allow-Credentials', $supportsCredentials);
+
+        return $response;
     }
 }

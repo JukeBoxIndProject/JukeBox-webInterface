@@ -16,7 +16,7 @@ return [
     */
     'paths' => ['*'],
     'allowed_methods' => ['*'],
-    'allowed_origins' => ['http://172.21.0.2:8001'], // Ajoutez l'adresse de votre serveur front-end
+    'allowed_origins' => ['http://172.21.0.2:8001'], // Ajout de l'adresse de votre serveur front-end
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],
     'exposed_headers' => [],
