@@ -1,8 +1,17 @@
 <script>
     let username = "tibo"
 
-    let music = "highwayToHell";
-    let type = "rock";
+    let music = {
+        name: "Highway to hell",
+        type: "rock",
+
+        color: {
+            bg1: "#ee7752",
+            bg2: "#e73c7e",
+            bg3: "#23a6d5",
+            bg4: "#23d5ab",
+        }
+    }
 </script>
 
 <body>
@@ -67,27 +76,22 @@
         overflow: hidden;
     }
 
-    @keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
     }
 
     .gradient {
-        --size: 150%;
-        --speed: 25s;
-        --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
-
-        width: var(--size);
-        height: var(--size);
-        filter: blur(calc(var(--size) / 5));
-        background-image: linear-gradient(hsl(158, 82, 57, 85%), hsl(252, 82, 57));
-        background-color: rgb(128, 2, 2);
-        filter: blur(100px);
-        animation: rotate var(--speed) var(--easing) alternate infinite;
-        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        background: linear-gradient(-45deg, { music.color.bg1 }, #e73c7e, #23a6d5, #23d5ab);
+	    background-size: 400% 400%;
+	    animation: gradient 15s ease infinite;
+	    height: 100vh;
     }
 </style>
