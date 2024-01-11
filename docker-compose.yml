@@ -11,23 +11,9 @@ services:
     working_dir: /srv/app
     volumes:
       - type: bind
-        source: ./
+        source: ./client
         target: /srv/app
     tty: true
-
-  # # Add the database
-  # database:
-  #   image: mysql:latest
-  #   container_name: database
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: root
-  #     MYSQL_DATABASE: jukebox
-  #     MYSQL_USER: user
-  #     MYSQL_PASSWORD: root
-  #   ports:
-  #     - "3306:3306"
-  #   volumes:
-  #     - ./db:/docker-entrypoint-initdb.d
 
   # Add the platform PHPMyAdmin
   phpmyadmin:
@@ -39,5 +25,5 @@ services:
       PMA_PASSWORD: root
     ports:
       - "8080:80"
-    depends_on:
-      - database
+    # depends_on:
+    #   - database
