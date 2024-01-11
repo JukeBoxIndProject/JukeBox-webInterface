@@ -1,4 +1,6 @@
 <script>
+    import ExpandMore from '$lib/svg/expand_more_FILL0_wght400_GRAD0_opsz24.svelte'
+
     let username = "tibo"
 
     let music = {
@@ -6,10 +8,10 @@
         type: "rock",
 
         color: {
-            bg1: "#ee7752",
-            bg2: "#e73c7e",
-            bg3: "#23a6d5",
-            bg4: "#23d5ab",
+            bg1: "#5E0000",
+            bg2: "#700000",
+            bg3: "#3A0000",
+            bg4: "#8E310A",
         }
     }
 </script>
@@ -19,9 +21,10 @@
         <div>
             <span>Jukebox</span>
         </div>
-        <div>
+        <div id="account-box">
             {#if username}
                 { username }
+                <ExpandMore />
             {:else}
                 connection
             {/if}
@@ -34,14 +37,13 @@
             --bg3: {music.color.bg3};
             --bg4: {music.color.bg4};
         ">
-
         </div>
     </main>
 </body>
 <style>
     @font-face {
         font-family: 'FugazOne';
-        src: url(../components/fonts/FugazOne-Regular.ttf);
+        src: url($lib/fonts/FugazOne-Regular.ttf);
     }
     body{
         height:100%;
@@ -71,6 +73,14 @@
         display: flex;
         align-items: center;
         font-family: 'Courier New', Courier, monospace;
+    }
+
+    header > #account-box {
+        cursor: pointer;
+
+        background-color: #212121;
+        margin-block: 1vh;
+        border-radius: 5px;
     }
 
     main {
