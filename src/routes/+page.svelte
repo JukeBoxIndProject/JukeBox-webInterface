@@ -28,7 +28,12 @@
         </div>
     </header>
     <main>
-        <div class="gradient">
+        <div class="gradient" style="
+            --bg1: {music.color.bg1};
+            --bg2: {music.color.bg2};
+            --bg3: {music.color.bg3};
+            --bg4: {music.color.bg4};
+        ">
 
         </div>
     </main>
@@ -89,7 +94,7 @@
     }
 
     .gradient {
-        background: linear-gradient(-45deg, { music.color.bg1 }, #e73c7e, #23a6d5, #23d5ab);
+        background: linear-gradient(-45deg, var(--bg1), var(--bg2), var(--bg3), var(--bg4));
 	    background-size: 400% 400%;
 	    animation: gradient 15s ease infinite;
 	    height: 100vh;
