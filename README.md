@@ -36,32 +36,4 @@ mysql -u root -p
 
 Enter password = root
 ```
-# Database with PHPMyAdmin
-## Do not user the tables: failed_jobs, migrations, password_reset_tokens, personal_access_tokens and users !! 
-### These tables are to make some backup of the modifications on the project database.
 
-#### To have all tables in phpmyadmin and to make an update, you have to do the following command:
-```bash
-docker-compose exec laravel php artisan migrate
-```
-
-# For access to the Laravel server, you have to do the following command in the Laravel project
-```bash
-php artisan serve #It will launch the Laravel server
-```
-
-# Command to create a Controller, an Event and an EventListener
-```bash
-php artisan make:controller NameOfTheController
-
-php artisan make:event NameOfTheEvent
-
-php artisan make:listener NameOfTheListener --event=NameOfTheEvent
-
-```
-
-# Differents controllers/events and eventslisteners for the Laravel project
-## For users
-UserController: manage all users in the project
-UserUpdated: Event who update users
-UserUpdatedListener: event listener who update the file that contain the list of all users

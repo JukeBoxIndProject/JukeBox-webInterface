@@ -1,80 +1,43 @@
-version: "3.4"
+version: "3.8"
 
 services:
-#Add the frontend service
- vite_docker:
-   image: node:alpine
-   container_name: vite_docker
-   entrypoint: /bin/sh
-   ports:
-     - 8000:8000
-   working_dir: /srv/app
-   volumes:
-     - type: bind
-       source: ./
-       target: /srv/app
-   tty: true
+  # Add the frontend service
+  vite_docker:
+    image: node:alpine
+    container_name: vite_docker
+    entrypoint: /bin/sh
+    ports:
+      - 8000:8000
+    working_dir: /srv/app
+    volumes:
+      - type: bind
+        source: ./
+        target: /srv/app
+    tty: true
 
-#Add the database
- database:
-  image: mysql:latest
-  container_name: database
-  environment:
-    MYSQL_ROOT_PASSWORD: root
-    MYSQL_DATABASE: jukebox
-    MYSQL_USER: user
-    MYSQL_PASSWORD: root
-  ports:
-    - "3306:3306"
-  volumes:
-    - ./db:/docker-entrypoint-initdb.d
+  # # Add the database
+  # database:
+  #   image: mysql:latest
+  #   container_name: database
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: jukebox
+  #     MYSQL_USER: user
+  #     MYSQL_PASSWORD: root
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - ./db:/docker-entrypoint-initdb.d
 
-#Add the platform PHPMyAdmin
- phpmyadmin:
-  image: phpmyadmin/phpmyadmin
-  container_name: phpmyadmin
-  environment:
-    PMA_HOST: database
-    PMA_USER: user
-    PMA_PASSWORD: root
-  ports:
-    - "8080:80"
-  depends_on:
-    - database
-
-#Add the PHP service
- php:
-  image: php:apache
-  container_name: php
-  ports:
-    - "9000:80"
-  volumes:
-    - type: bind
-      source: ./
-      target: /var/www/html
-  depends_on:
-    - database
-
-#Add the Laravel full-stack framework
- laravel:
-  build:
-    context: .
-    dockerfile: ./Dockerfile
-  container_name: laravel
-  ports:
-    - "8001:80"
-  working_dir: /var/www/html
-  volumes: 
-    - type: bind
-      source: ./JukeBox-webInterface_back-end
-      target: /var/www/html
-
-  depends_on:
-    - database
-  environment:
-    DB_CONNECTION: mysql
-    DB_HOST: database
-    DB_PORT: 3306
-    DB_DATABASE: jukebox
-    DB_USERNAME: user
-    DB_PASSWORD: root
+  # Add the platform PHPMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: database
+      PMA_USER: user
+      PMA_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - database
